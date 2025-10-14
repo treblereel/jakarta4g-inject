@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>org.treblereel.gwt.jakarta</groupId>
     <modelVersion>4.0.0</modelVersion>
@@ -27,6 +27,61 @@
         <url>https://github.com/treblereel</url>
     </organization>
 
+    <developers>
+        <developer>
+            <name>Antoine Sabot-Durand</name>
+            <id>asabotdu</id>
+            <timezone>CET</timezone>
+            <organization>Red Hat Inc.</organization>
+            <roles>
+                <role>Specfication Lead</role>
+            </roles>
+            <email>asd[at]redhat[dot]com</email>
+        </developer>
+
+        <developer>
+            <name>Martin Kouba</name>
+            <id>mkouba</id>
+            <organization>Red Hat Inc.</organization>
+            <roles>
+                <role>RI tech lead</role>
+            </roles>
+            <email>mkouba[at]redhat[dot]com</email>
+        </developer>
+
+        <developer>
+            <name>Tomas Remes</name>
+            <id>tremes</id>
+            <organization>Red Hat Inc.</organization>
+            <roles>
+                <role>TCK tech lead</role>
+            </roles>
+            <email>tremes[at]redhat[dot]com</email>
+        </developer>
+
+        <developer>
+            <name>Matej Novotny</name>
+            <id>manovotn</id>
+            <organization>Red Hat Inc.</organization>
+            <roles>
+                <role>TCK and RI developer</role>
+            </roles>
+            <email>manovotn[at]redhat[dot]com</email>
+        </developer>
+        <developer>
+            <id>treblereel</id>
+            <name>Dmitrii Tikhomirov</name>
+            <email>chani.liet@gmail.com</email>
+        </developer>
+    </developers>
+
+        <scm>
+        <connection>scm:git:git://github.com/treblereel/jakarta4g-inject.git</connection>
+        <developerConnection>scm:git:ssh://github.com/treblereel/jakarta4g-inject.git</developerConnection>
+        <url>https://github.com/treblereel/jakarta4g-inject/tree/master</url>
+        <tag>HEAD</tag>
+    </scm>
+
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -36,10 +91,8 @@
         <maven.source.version>3.2.1</maven.source.version>
         <maven.fmt.plugin>2.9</maven.fmt.plugin>
         <maven.license.plugin>3.0</maven.license.plugin>
-        <maven.deploy.plugin>2.8.2</maven.deploy.plugin>
         <maven.gpg.plugin>1.6</maven.gpg.plugin>
         <maven.javadoc.plugin>3.2.0</maven.javadoc.plugin>
-        <maven.release.plugin>2.5.3</maven.release.plugin>
         <maven.scm.provider.gitexe>1.9.5</maven.scm.provider.gitexe>
     </properties>
 
@@ -107,11 +160,12 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-deploy-plugin</artifactId>
-                        <version>${maven.deploy.plugin}</version>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>0.9.0</version>
+                        <extensions>true</extensions>
                         <configuration>
-                            <skip>false</skip>
+                            <publishingServerId>sonatype</publishingServerId>
                         </configuration>
                     </plugin>
                 </plugins>
